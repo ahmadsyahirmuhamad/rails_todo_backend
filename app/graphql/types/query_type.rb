@@ -27,3 +27,6 @@ Types::QueryType = GraphQL::ObjectType.define do
   end
 
 end
+
+
+

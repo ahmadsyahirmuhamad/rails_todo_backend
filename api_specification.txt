@@ -1,0 +1,122 @@
+## Current User ##
+query:
+{
+  user {
+    id
+    email
+    full_name
+    created_at
+    updated_at
+    errors
+  }
+}
+
+respond:
+{
+  "data": {
+    "user": {
+      "id": "3",
+      "email": "user@example.com",
+      "full_name": "user dummy",
+      "created_at": "2017-10-07 09:28:24 UTC",
+      "updated_at": "2017-10-07 09:28:24 UTC",
+      "errors": []
+    }
+  }
+}
+
+
+## Current Todos
+query:
+{
+  todos {
+    edges {
+      node {
+        id
+        title
+        completed
+        created_at
+        updated_at
+      }
+    }
+  }
+}
+
+respond:
+{
+  "data": {
+    "todos": {
+      "edges": [
+        {
+          "node": {
+            "id": "2",
+            "title": "things todo",
+            "completed": null,
+            "created_at": "2017-10-07 09:28:24 UTC",
+            "updated_at": "2017-10-07 09:28:24 UTC"
+          }
+        }
+      ]
+    }
+  }
+}
+
+## Current Todo Subtodo
+query:
+{
+  sub_todos(todo_id: 2) {
+    edges {
+      node {
+        id
+        title
+        completed
+        created_at
+        updated_at
+        errors
+      }
+    }
+  }
+}
+
+respond:
+{
+  "data": {
+    "sub_todos": {
+      "edges": [
+        {
+          "node": {
+            "id": "2",
+            "title": "sub todo title",
+            "completed": false,
+            "created_at": "2017-10-07 09:28:24 UTC",
+            "updated_at": "2017-10-07 09:28:24 UTC",
+            "errors": []
+          }
+        }
+      ]
+    }
+  }
+}
+
+
+## Mutation
+## Session
+query:
+mutation {
+  userLogin(input: {email: "user@example.com", password: "password"}) {
+    user {
+      auth_token
+    }
+  }
+}
+
+respond:
+{
+  "data": {
+    "userLogin": {
+      "user": {
+        "auth_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozfQ.4i9QF_aE6ESJknp4s1_fSLuxtICQMRbSSOT_FSd_UzQ"
+      }
+    }
+  }
+}
