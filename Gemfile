@@ -14,8 +14,16 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
+# active admin
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
+
+# graphql
+gem 'graphql'
+
+# jwt
+gem 'jwt'
+
 
 group :development, :test do
   gem 'pry-rails'
@@ -39,3 +47,5 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'graphiql-rails', group: :development

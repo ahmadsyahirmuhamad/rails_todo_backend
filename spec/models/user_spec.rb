@@ -9,25 +9,22 @@ describe User do
   end
 
   context 'instance methods' do
-    # it { should respond_to(:set_default_role) }
-    # it { should respond_to(:generate_auth_token) }
-    # it { should respond_to(:filtered_course) }
-    # it { should respond_to(:filtered_social_wall) }
+    it { should respond_to(:generate_auth_token) }
   end
 
-  # context '#auth_token' do
-  #   describe '#generate_auth_token' do
+  context '#auth_token' do
+    describe '#generate_auth_token' do
 
-  #     before(:all) do
-  #       @user = create(:user, :user_role)
-  #     end
+      before(:all) do
+        @user = create(:user)
+      end
 
-  #     it 'should generate auth token' do
-  #       token = @user.generate_auth_token
-  #       expect(@user.generate_auth_token).to eql(token)
-  #     end
+      it 'should generate auth token' do
+        token = @user.generate_auth_token
+        expect(@user.generate_auth_token).to eql(token)
+      end
 
-  #   end
-  # end
+    end
+  end
 
 end

@@ -13,5 +13,10 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 8 }, confirmation: true
   validates :password_confirmation, presence: true
 
+  def generate_auth_token
+    payload = { user_id: id }
+    AuthTokenService.encode(payload)
+  end
+
 end
 

@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :user do
-    association :todo
 
     email { Faker::Internet.email }
     password  "password"
