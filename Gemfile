@@ -18,9 +18,17 @@ gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 
 group :development, :test do
-  gem 'pry'
+  gem 'pry-rails'
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rspec-rails', '~> 3.6'
+  gem 'factory_girl_rails', '~> 4.4.1'
+  gem 'faker', '~> 1.4.3'
+end
+
+group :test do
+  gem 'database_cleaner', '~> 1.3.0'
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
 end
 
 group :development do
