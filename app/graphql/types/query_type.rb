@@ -18,10 +18,10 @@ Types::QueryType = GraphQL::ObjectType.define do
   connection :sub_todos, Types::SubTodoType.connection_type, max_page_size: 3, property: :sub_todos do
     argument :todo_id, !types.ID
     resolve ->(obj, args, ctx) {
-      todo = Todo.find(args[:todo_id])
-      if todo
+      if todo = Todo.find(args[:todo_id])
         todo.sub_todos
       else
+        GraphQL::ExecutionError.new("#{todo.errors.full_messages.join(", ")}")
       end
     }
   end

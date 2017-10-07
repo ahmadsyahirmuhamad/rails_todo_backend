@@ -120,3 +120,82 @@ respond:
     }
   }
 }
+
+
+## Create Todo
+query:
+mutation {
+  createTodo(input: {title: "test", description: "test"}) {
+    todo {
+      id
+      title
+      description
+      errors
+    }
+  }
+}
+
+respond:
+{
+  "data": {
+    "createTodo": {
+      "todo": {
+        "id": "7",
+        "title": "test",
+        "description": "test",
+        "errors": []
+      }
+    }
+  }
+}
+
+## Update Todo
+query:
+mutation {
+  updateTodo(input: {id: "7", title: "tesst", description: "tessss", completed: "true"}) {
+    todo {
+      id
+      title
+      description
+      errors
+    }
+  }
+}
+
+respond:
+{
+  "data": {
+    "updateTodo": {
+      "todo": {
+        "id": "7",
+        "title": "tesst",
+        "description": "tessss",
+        "errors": []
+      }
+    }
+  }
+}
+
+## Delete Todo
+query:
+mutation {
+  deleteTodo(input: {id: "9"}) {
+    todo {
+      id
+      title
+      description
+      errors
+    }
+  }
+}
+
+respond:
+{
+  "data": {
+    "deleteTodo": {
+      "todo": {
+        "errors": []
+      }
+    }
+  }
+}
