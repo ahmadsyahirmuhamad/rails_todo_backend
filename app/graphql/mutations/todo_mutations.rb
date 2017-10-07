@@ -18,10 +18,10 @@ module Mutations::TodoMutations
   Update = GraphQL::Relay::Mutation.define do
     name "updateTodo"
 
-    input_field :id, !types.String
+    input_field :id, !types.ID
     input_field :title, types.String
     input_field :description, types.String
-    input_field :completed, types.String
+    input_field :completed, types.Boolean
 
     return_field :todo, Types::TodoType
 
@@ -37,7 +37,7 @@ module Mutations::TodoMutations
   Delete = GraphQL::Relay::Mutation.define do
     name "deleteTodo"
 
-    input_field :id, !types.String
+    input_field :id, !types.ID
 
     return_field :todo, Types::TodoType
 

@@ -199,3 +199,79 @@ respond:
     }
   }
 }
+
+
+## Create SubTodo
+query:
+mutation {
+  createSubTodo(input: {todo_id: "8", title: "haha"}) {
+    sub_todo {
+      id
+      title
+      completed
+      errors
+    }
+  }
+}
+
+respond:
+{
+  "data": {
+    "createSubTodo": {
+      "sub_todo": {
+        "id": "3",
+        "title": "haha",
+        "completed": false,
+        "errors": []
+      }
+    }
+  }
+}
+
+## Update SubTodo
+query:
+mutation {
+  updateSubTodo(input: {id: "3", title: "kiki", completed: true}) {
+    sub_todo {
+      id
+      title
+      completed
+      errors
+    }
+  }
+}
+
+respond:
+{
+  "data": {
+    "updateSubTodo": {
+      "sub_todo": {
+        "id": "3",
+        "title": "kiki",
+        "completed": true,
+        "errors": []
+      }
+    }
+  }
+}
+
+## Delete SubTodo
+query:
+mutation {
+  deleteSubTodo(input: {id: "3"}) {
+    sub_todo {
+      errors
+    }
+  }
+}
+
+respond:
+{
+  "data": {
+    "deleteSubTodo": {
+      "sub_todo": {
+        "errors": []
+      }
+    }
+  }
+}
