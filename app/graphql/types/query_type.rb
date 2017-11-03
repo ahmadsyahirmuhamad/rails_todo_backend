@@ -9,7 +9,7 @@ Types::QueryType = GraphQL::ObjectType.define do
   end
 
   # multiple query
-  connection :todos, Types::TodoType.connection_type, max_page_size: 3, property: :todos do
+  connection :todos, Types::TodoType.connection_type, max_page_size: 15, property: :todos do
     resolve ->(obj, args, ctx) {
       ctx[:current_user].todos
     }
